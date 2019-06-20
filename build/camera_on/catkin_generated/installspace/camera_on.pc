@@ -1,0 +1,8 @@
+prefix=/home/cseecar/catkin_ws/install
+
+Name: camera_on
+Description: Description of camera_on
+Version: 0.0.0
+Cflags: -I/home/cseecar/catkin_ws/install/include
+Libs: -L/home/cseecar/catkin_ws/install/lib -lcamera_test2
+Requires: cv_bridge roscpp std_msgs

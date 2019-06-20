@@ -1,0 +1,8 @@
+prefix=/home/cseecar/catkin_ws/devel
+
+Name: KeyPad
+Description: Description of KeyPad
+Version: 0.0.0
+Cflags: -I/home/cseecar/catkin_ws/devel/include
+Libs: -L/home/cseecar/catkin_ws/devel/lib -lmailbox
+Requires: roscpp std_msgs

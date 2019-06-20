@@ -1,0 +1,8 @@
+prefix=/home/cseecar/catkin_ws/devel
+
+Name: camera_show
+Description: Description of camera_show
+Version: 0.0.0
+Cflags: -I/home/cseecar/catkin_ws/devel/include
+Libs: -L/home/cseecar/catkin_ws/devel/lib -lcamera_test2
+Requires: cv_bridge roscpp std_msgs
