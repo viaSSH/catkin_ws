@@ -23,11 +23,11 @@ int main(int argc, char **argv)
     std_msgs::Int8 msg2;
 
 	int key = 0;
-
+	bool turn=true;
 	printf("\nControl Your robot!\n");
     printf("---------------------------\n");
     printf("Moving around:\n");
-    printf("         w     \n");
+    printf("         w    r\n");
     printf("    a    s    d\n");
 	printf("         x     \n");
     //printf("    z    x    c\n\n");
@@ -75,6 +75,13 @@ int main(int argc, char **argv)
 				//angle_send=90;
 				cmd.linear.x=spd_send;
 				cmd.angular.z=angle_send;
+				
+                //msg2.data = 2;
+				break;
+			case 'r':
+				turn=!turn;
+				cmd.linear.y=turn;
+				
 				
                 //msg2.data = 2;
 				break;
