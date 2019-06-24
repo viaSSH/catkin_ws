@@ -18,29 +18,32 @@ ros::Subscriber sub2;
 std_msgs::Int8 msg2;
 int key = 0;
 
-int const spd=70;
+int const spd=65;
+// int const spd=0;
 int angle=90;
 
-void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {     
+void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
 	//printf("do\n");
-	
-	sub_value = given_msg->data;
+
+	sub_value = (given_msg->data);
 	//printf("%d",sub_value);
-	
+
 	//angle=sub_value+90;
-	if(sub_value<0)sub_value=(sub_value*2)/3;
-		
-		
-	if(sub_value>=0)sub_value=(sub_value*2)/3;
-		
+	if(sub_value<0)sub_value=(sub_value*2)/5; //-150-> -60
+
+
+	if(sub_value>=0)sub_value=(sub_value*2)/5; //150 -> 60
+
 	angle=90+sub_value;
 	if(angle>150)angle=150;
 	if(angle<30)angle=30;
-	
-	
-	
+
+
+	// add by seung
+	cmd.linear.x = spd;
+
 	cmd.angular.z=angle;
-	
+
 	pub2.publish(cmd);
 }
 
@@ -48,22 +51,22 @@ void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
 int main(int argc, char **argv)
 {
 	//for pub to motor
-	cmd.linear.x=spd;	
+	cmd.linear.x=spd;
 	ros::init(argc, argv, "msg_publisher");
 	ros::NodeHandle nh2;
 
 	pub2 = nh2.advertise<geometry_msgs::Twist>("data_msg", 100);
 	sub2 = nh2.subscribe("cam_msg",100,msgCallback);
-	
-	ros::Rate loop_rate(1);	
 
-	
+	ros::Rate loop_rate(1);
 
-	
+
+
+
 	//for sub from cam
-	
-	
-	
+
+
+
 	printf("mailbox is started");
 
 	while(ros::ok())
@@ -80,9 +83,9 @@ int main(int argc, char **argv)
 			case 27:
 				msg2.data = 5;
 				pub2.publish(msg2);
-				printf("stop and turn off");            	
+				printf("stop and turn off");
 				return 0;
-            	
+
 
 			case 's':
 				msg2.data = 2;
