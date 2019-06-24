@@ -22,7 +22,7 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 #find_package(catkin REQUIRED cmake_modules)
-find_package(GSL REQUIRED)
+#find_package(GSL REQUIRED)
 
 catkin_package(   
   LIBRARIES camera_test2   
@@ -40,5 +40,5 @@ ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_node 
   ${catkin_LIBRARIES} 
   ${OpenCV_LIBS}
-  ${GSL_LIBRARIES} 
+  #${GSL_LIBRARIES} 
 ) 
