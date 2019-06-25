@@ -9,6 +9,8 @@
 //#include <iostream>
 #include <geometry_msgs/Twist.h>
 
+using namespace std;
+
 geometry_msgs::Twist cmd;
 int kbhit();
 int getch();
@@ -50,9 +52,11 @@ void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
 
 int main(int argc, char **argv)
 {
-	scanf("enter speed: %d\n", &spd);
+	cout << "input speed ";
+	cin >> spd;
 	if(spd > 80) spd = 80;
-	
+	cout << "speed: " << spd << endl;
+
 	//for pub to motor
 	cmd.linear.x=spd;
 	ros::init(argc, argv, "msg_publisher");
