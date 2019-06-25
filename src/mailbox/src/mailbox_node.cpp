@@ -50,6 +50,9 @@ void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
 
 int main(int argc, char **argv)
 {
+	scanf("enter speed: %d\n", &spd);
+	if(spd > 80) spd = 80;
+	
 	//for pub to motor
 	cmd.linear.x=spd;
 	ros::init(argc, argv, "msg_publisher");
@@ -60,8 +63,7 @@ int main(int argc, char **argv)
 
 	ros::Rate loop_rate(1);
 
-	scanf("enter speed: %d\n", &spd);
-	if(spd > 80) spd = 80;
+
 
 
 
