@@ -1,4 +1,4 @@
-//#define ROS
+#define ROS
 //#define CAMERA_SHOW
 //#define CAMERA_SHOW_MORE
 
