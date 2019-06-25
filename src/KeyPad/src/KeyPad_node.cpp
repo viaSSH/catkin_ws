@@ -45,98 +45,61 @@ int main(int argc, char **argv)
 
 		switch(key){
 			case 27:
+               printf("ESCAPE\n");
             	return 0;
             	break;
 			case 'w':
                 //msg2.data = 1;
-				cmd.linear.x=spd_send++;
+				if( ++spd_send> 200)
+                     spd_send = 200;
+				cmd.linear.x=spd_send;
+               printf("speed=%d\n", spd_send);
 				//cmd.angular.z=90;
 				break;
 			//left 2.00
 			case 'a':
 				//cmd.linear.x=50;
-				cmd.angular.z=angle_send--;
+				if(++angle_send > 150)
+					  angle_send = 150;
+				cmd.angular.z=angle_send;
+                printf("angle=%d\n", angle_send);
                 //msg2.data = 3;
 				break;
 
-			//right 3.00	
+			//right 3.00
 			case 'd':
 				//cmd.linear.x=50;
-				cmd.angular.z=angle_send++;
+                if(--angle_send < 30)
+					  angle_send = 30;
+				cmd.angular.z=angle_send;
+				cmd.linear.x=spd_send;
+                printf("angle=%d\n", angle_send);
                 //msg2.data = 2;
 				break;
 			case 'x':
 				//cmd.linear.x=50;
-				cmd.linear.x=spd_send--;
+				if( --spd_send < -200)
+                     spd_send = -200;
+				cmd.linear.x=spd_send;
+                printf("speed=%d\n", spd_send);
                 //msg2.data = 2;
 				break;
 			case 's':
 				spd_send=0;
-				//angle_send=90;
+				angle_send=90;
 				cmd.linear.x=spd_send;
 				cmd.angular.z=angle_send;
-				
+				printf("angle=%d\n",angle_send);
                 //msg2.data = 2;
 				break;
 			case 'r':
 				turn=!turn;
 				cmd.linear.y=turn;
-				
-				
+			    printf("mode changed to  %s\n", turn? "camera mode": "keypad mode");
                 //msg2.data = 2;
 				break;
 		}
-	
-		/*if(kbhit){
-			key = getch();
-		}else{
-			key = 0;
-		}
-		switch(key){
-			case 27:
-            	return 0;
-            	break;
-			
 
-			//forward 1.00
-			case 'w':
-                                msg2.data = 1;
-				break;
-			
-			
-			
-			//left 2.00
-			case 'a':
-                                msg2.data = 3;
-				break;
-
-			//right 3.00	
-			case 'd':
-                                msg2.data = 2;
-				break;
-
-			
-
-			//backward 5.00
-			case 's':
-                                msg2.data = 8;
-				break;
-
-
-			//stop 6.00	
-			case 'q':
-                                msg2.data = 8;
-				break;	
-			
-			//boost
-			case 'e':
-                                msg2.data = 0;
-				break;	
-		}*/
-		
-		//ROS_INFO("send msg = %d \n", msg2.data);
-
-       	//pub2.publish(msg2);
 		pub2.publish(cmd);
 		//loop_rate.sleep();
 
