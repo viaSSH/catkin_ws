@@ -60,6 +60,9 @@ int main(int argc, char **argv)
 
 	ros::Rate loop_rate(1);
 
+	scanf("enter speed: %d\n", &spd);
+	if(spd > 80) spd = 80;
+
 
 
 
