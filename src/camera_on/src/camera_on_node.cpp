@@ -224,9 +224,9 @@ int img_process(Mat &frame)
 
 int main(int argc, char**argv)
 {
-//	VideoCapture cap(0);
+	VideoCapture cap(0);
 
-  VideoCapture cap("compete.mp4");
+//  VideoCapture cap("compete.mp4");
   Mat frame;
 
   if(!cap.isOpened()){
@@ -272,7 +272,7 @@ int main(int argc, char**argv)
     differ = img_process(frame);
 
 #ifdef ROS
-	cam_msg.data = differ 
+	cam_msg.data = differ; 
     pub.publish(cam_msg);
     loop_rate.sleep();
 #else
