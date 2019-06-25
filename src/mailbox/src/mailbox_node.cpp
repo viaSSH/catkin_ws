@@ -18,7 +18,7 @@ ros::Subscriber sub2;
 std_msgs::Int8 msg2;
 int key = 0;
 
-int const spd=65;
+int spd=65;
 // int const spd=0;
 int angle=90;
 
