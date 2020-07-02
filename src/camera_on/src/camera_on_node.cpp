@@ -207,7 +207,7 @@ int img_process(Mat &frame)
 	float ldistance, rdistance;
 	find_lines(roi, left_lines, right_lines, &rdistance, &ldistance);
 
-	int differ=rdistance-ldistance;
+	int differ=ldistance-rdistance;
 #ifdef CAMERA_SHOW
     circle (roi, Point(XHalf, YPoint), 5, Scalar(250,250,250),-1);
 	circle(roi, Point(XHalf + differ, YPoint), 5, Scalar(0, 0, 255), 2);
