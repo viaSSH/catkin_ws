@@ -33,8 +33,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}_node src/test.cpp)
-#add_executable(${PROJECT_NAME}_node src/camera_show_node.cpp)
+#add_executable(${PROJECT_NAME}_node src/test.cpp)
+add_executable(${PROJECT_NAME}_node src/camera_show_node.cpp)
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS}
 ${catkin_EXPORTED_TARGETS})
 
