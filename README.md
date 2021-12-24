@@ -14,7 +14,8 @@
 --------------
 <img src="./figs/Poster.png" width="300" />
 
-
+### Usage
+-------------
 `camera_on.cpp` 
 - when debug **without** display
 
