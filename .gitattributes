@@ -1,3 +1,4 @@
+* linguist-vendored
 *.cmake linguist-vendored
 *.make linguist-vendored
 *.Makefile linguist-vendored
